@@ -1,0 +1,8 @@
+C:\Desenvolvimento\SistemaLojaOnline\Data\bin\Debug\Data.dll.config
+C:\Desenvolvimento\SistemaLojaOnline\Data\bin\Debug\Data.dll
+C:\Desenvolvimento\SistemaLojaOnline\Data\bin\Debug\Data.pdb
+C:\Desenvolvimento\SistemaLojaOnline\Data\bin\Debug\Modelo.dll
+C:\Desenvolvimento\SistemaLojaOnline\Data\bin\Debug\Modelo.pdb
+C:\Desenvolvimento\SistemaLojaOnline\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Desenvolvimento\SistemaLojaOnline\Data\obj\Debug\Data.dll
+C:\Desenvolvimento\SistemaLojaOnline\Data\obj\Debug\Data.pdb

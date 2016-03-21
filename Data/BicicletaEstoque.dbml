@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Estoque" Class="BicicletaEstoqueDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JEAN-PC\SQLEXPRESS;Initial Catalog=Estoque;Integrated Security=True" SettingsObjectName="Data.Properties.Settings" SettingsPropertyName="EstoqueConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SearchBicicletas" Method="SearchBicicletas">
+    <Parameter Name="Modelo" Parameter="modelo" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="SearchBicicletasResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantidade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PrecoProposto" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

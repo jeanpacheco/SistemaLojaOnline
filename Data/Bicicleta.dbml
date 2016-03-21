@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LojaOnline" Class="BicicletaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JEAN-PC\SQLEXPRESS;Initial Catalog=LojaOnline;Integrated Security=True" SettingsObjectName="Data.Properties.Settings" SettingsPropertyName="LojaOnlineConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.ListBicicletas" Method="ListBicicletas">
+    <ElementType Name="ListBicicletasResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Preco" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DeleteBicicleta" Method="DeleteBicicleta">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AddBicicleta" Method="AddBicicleta">
+    <Parameter Name="Modelo" Parameter="modelo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Preco" Parameter="preco" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateBicicleta" Method="UpdateBicicleta">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Modelo" Parameter="modelo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Preco" Parameter="preco" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

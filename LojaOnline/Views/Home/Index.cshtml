@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    table {
+        width: 100%;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    table#t01 tr:nth-child(even) {
+        background-color: #eee;
+    }
+
+    table#t01 tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    table#t01 th {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        preencherDados();
+    });
+
+    function preencherDados() {
+        $.post("GetBicicletas", null, function (data) {
+            if (data) {
+                $('#t01').append(
+                    "<tr>" +
+                        "<th>Modelo</th>" +
+                        "<th>Preço</th>" +
+                        "<th>Preço Proposto</th>" +
+                        "<th>Alterar Preço</th>" +
+                    "</tr>"
+                );
+                $(data).each(function () {
+                    if (this.Preco == this.PrecoProposto) {
+                        $('#t01').append(
+                        "<tr>" +
+                            "    <td>" + this.Modelo + "</td>" +
+                            "    <td>" + this.Preco + "</td>" +
+                            "    <td>" + this.PrecoProposto + "</td>" +
+                            "    <td></td>" +
+                        "</tr>");
+                    } else {
+                        $('#t01').append(
+                        "<tr>" +
+                            "    <td>" + this.Modelo + "</td>" +
+                            "    <td>" + this.Preco + "</td>" +
+                            "    <td>" + this.PrecoProposto + "</td>" +
+                            "    <td> <a href=javascript:atualizarPreco(" + this.Id + ",'"+ this.Modelo + "',"+ this.PrecoProposto + ")>Para igualar o preço atual ao preço proposto clique aqui</a> </td>" +
+                        "</tr>");
+                    }
+                    
+                });
+            }
+        }, 'json')
+    }
+
+    function atualizarPreco(id, modelo, preco) {
+        $.ajax({
+            url: 'AtualizarPreco',
+            data: { id: id, modelo: modelo, preco: preco },
+            dataType: "json",
+            type: "POST",
+            success: function (data) {
+                $('#t01').html("");
+                preencherDados();
+            },
+            error: function (error) {
+                alert(error.toString());
+            }
+        });
+    }
+
+</script>
+
+
+<div>
+    <h1>
+        Gerenciar Preços das Bicicletas
+    </h1>
+
+    <p>
+        <table id="t01">
+            
+        </table>
+    </p>
+</div>
